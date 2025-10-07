@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora – Índices Sintéticos Weltrade (QT)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Banner superior (solo imagen) -->
+    <div class="brand">
+      <img class="banner" src="banner.png" alt="Quantum Traders banner" />
+    </div>
+
+    <div class="title">Calculadora</div>
+    <div class="subtitle">
+     <div class="subtitle">
+<div class="subtitle">
+  <p>La Calculadora de Tamaño de Posición fue creada por Quantum Traders para ayudarte a operar de forma más segura en los índices sintéticos de Weltrade. Su función principal es apoyarte en la gestión del riesgo, permitiéndote calcular de manera rápida y sencilla el tamaño de lote ideal antes de abrir una operación.</p>
+
+  <p>Para usarla, solo sigue estos pasos:</p>
+  <ol class="intro-steps">
+    <li>Elige el <strong>índice sintético</strong> que vas a operar.</li>
+    <li>Ingresa el <strong>saldo actual de tu cuenta</strong>.</li>
+    <li>Indica el <strong>porcentaje de capital</strong> que deseas arriesgar en la operación.</li>
+    <li>Especifica el <strong>tamaño del Stop Loss (SL) en ticks</strong>.</li>
+  </ol>
+
+  <p>Con esta información, la calculadora mostrará automáticamente el tamaño de posición recomendado, ayudándote a mantener tu riesgo bajo control y acorde a tu estrategia.</p>
+
+<p class="intro-link highlight-row">
+  ¡No esperes más!
+  <a href="https://track.gowt.me/visit/?bta=43074&amp;brand=weltrade" target="_blank" rel="noopener noreferrer">regístrate ahora</a> y encuentra tu mercado ideal.
+</p>
+
+</div>
+
+</div>
+
+    </div>
+
+    <div class="grid">
+      <!-- Parámetros -->
+      <section class="card">
+        <h1 class="section">Parámetros</h1>
+
+        <label for="indice">Índice</label>
+        <select id="indice">
+          <option value="FlipX1"selected>FlipX 1</option>
+          <option value="FlipX2">FlipX 2</option>
+          <option value="FlipX3">FlipX 3</option>
+          <option value="FlipX4">FlipX 4</option>
+          <option value="FlipX5">FlipX 5</option>
+        </select>
+
+        <label for="balance">Balance de cuenta (USD)</label>
+        <input id="balance" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+
+        <label for="riesgo">Porcentaje de riesgo (%)</label>
+        <input id="riesgo" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+
+        <label for="sl">Stop Loss (ticks)</label>
+        <input id="sl" type="number" inputmode="numeric" min="1" step="1" value="0" />
+
+        <div class="actions">
+          <button id="calc" class="btn" type="button">CALCULAR</button>
+        </div>
+
+        <div class="note">
+          Todos los cálculos son en <b>USD</b>. Para FlipX1–5 se asume <b>1 USD/tick</b> por cada 1 lote.
+        </div>
+      </section>
+
+      <!-- Resultados -->
+      <section class="card result">
+        <h1 class="section">Resultados</h1>
+        <div class="sep"></div>
+
+        <div>
+          <div class="muted">Perderás (riesgo)</div>
+          <div id="riesgoUsd" class="value">0 USD$</div>
+          <div class="muted">según tu % de riesgo</div>
+          <div class="sep"></div>
+        </div>
+
+        <div>
+          <div class="muted">Tamaño de lote</div>
+          <div id="lotaje" class="value">0.00</div>
+          <div id="lotNote" class="muted">lotaje recomendado con ese SL</div>
+          <div class="sep"></div>
+        </div>
+
+        <!-- Marca (se muestra solo después de calcular) -->
+        <div id="qtBrand" class="brand-footer">
+          <img src="logo.png" alt="Quantum Traders logo" />
+          <div class="site-name">QUANTUM TRADERS</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+  
+  <footer class="site-footer">
+  <div class="footer-accent"></div>
+  <div class="footer-inner">
+    <p><strong>© 2025 Qtraderss.com | Todos los derechos reservados</strong></p>
+    <p>Este sitio no forma parte del sitio web de Weltrade.</p>
+    <p>Además, este sitio <strong>NO</strong> está patrocinado ni respaldado por <strong>Weltrade Ltd</strong> o <strong>Systemgates Limited</strong> de ninguna manera.</p>
+  </div>
+</footer>
+
+  
+  
+</body>
+</html>

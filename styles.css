@@ -1,0 +1,179 @@
+:root {
+  /* Paleta inspirada en el logo/banner */
+  --bg:#0a0b0c;           /* fondo muy oscuro */
+  --bg2:#121316;          /* contraste sutil */
+  --card:#14161a;         /* tarjetas */
+  --muted:#a8b0bb;        /* texto secundario */
+  --text:#f3f6fb;         /* texto principal */
+  --gold:#f6b23e;         /* dorado logo */
+  --amber:#f59e0b;        /* naranja ámbar */
+  --glow:#ffce72;         /* brillo */
+}
+
+/* Fondo con destellos sutiles */
+html, body {
+  background:
+    radial-gradient(700px 320px at 50% 92%, rgba(245,158,11,.22), transparent 65%),
+    radial-gradient(600px 260px at 50% -20%, rgba(245,158,11,.08), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+.container { max-width: 1100px; margin: 28px auto; padding: 0 16px; }
+
+/* Banner (solo imagen) */
+.brand { position: relative; margin-bottom: 16px; overflow: hidden; border-radius: 18px; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+.brand img.banner { width: 100%; height: auto; display:block; filter: saturate(1.05) contrast(1.02); }
+
+.title {
+  font-size: 32px; font-weight: 900; margin: 12px 0 6px;
+  background: linear-gradient(90deg, var(--gold), var(--amber));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.subtitle { color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 22px; }
+
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.card {
+  background: linear-gradient(180deg, var(--card), var(--bg2));
+  border-radius: 16px; padding: 22px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+h1.section { font-size: 28px; margin: 0 0 12px; letter-spacing: .3px; color: var(--text); }
+
+label { display:block; font-size: 14px; margin: 14px 0 8px; color: var(--muted); }
+select, input[type="number"], button { width: 100%; max-width:100%; box-sizing:border-box; }
+select, input[type="number"] {
+  background:#0f1318; color:var(--text);
+  border:1px solid #262d36; border-radius: 12px; padding: 14px 12px; font-size: 16px;
+  outline: none; transition: border .15s, box-shadow .15s;
+}
+select:focus, input[type="number"]:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(246,178,62,.18); }
+
+.actions { margin-top: 16px; display:flex; gap: 10px; }
+.btn {
+  background: linear-gradient(180deg, var(--glow), var(--gold)); color:#2b1600;
+  border:none; border-radius: 12px; padding: 14px 16px; font-size: 16px; font-weight: 800; cursor:pointer;
+  box-shadow: 0 6px 20px rgba(246,178,62,.35);
+}
+.btn:active { transform: translateY(1px); }
+
+.note { margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+/* Resultados */
+.result { text-align: center; }
+.result h1.section { text-align:center; }
+.value { font-size: 40px; font-weight: 900; margin-top: 6px; color: var(--text); text-shadow: 0 0 20px rgba(255,176,38,.15); }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Separadores sutiles */
+.sep {
+  height:2px; background:rgba(255,255,255,.14);
+  border-radius:2px; width:60%; margin:14px auto;
+}
+
+/* Mensaje de error (capital insuficiente) */
+.error { color:#ef4444; font-weight:700; }
+
+/* Marca al pie de resultados (oculta hasta calcular) */
+.brand-footer {
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  gap:8px; margin-top:26px; opacity:0; transition: opacity .35s ease;
+}
+.brand-footer.show { display:flex; opacity:1; }
+.brand-footer img { width:160px; height:160px; border-radius:999px; box-shadow: 0 12px 32px rgba(0,0,0,.48); }
+.brand-footer .site-name {
+  font-weight:900; letter-spacing:.8px;
+  background: linear-gradient(90deg, var(--gold), var(--amber));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  font-size:32px; text-shadow: 0 0 24px rgba(246,178,62,.34);
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Footer (mismos colores del sitio) ===== */
+.site-footer {
+  margin-top: 36px;
+  background: var(--bg);           /* mismo fondo del sitio */
+  color: var(--text);              /* mismo color de texto principal */
+}
+.site-footer .footer-accent {
+  height: 10px;
+  background: var(--gold);         /* acento dorado del tema */
+}
+.site-footer .footer-inner {
+  text-align: center;
+  padding: 18px 16px 26px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--muted);             /* texto secundario como el resto */
+}
+.site-footer .footer-inner p { margin: 6px 0; }
+.site-footer .footer-inner strong { color: var(--text); }  /* resalta igual que en el sitio */
+
+
+
+/* Intro bajo el título */
+.subtitle .intro-steps { margin: 10px 0 10px 22px; }
+.subtitle .intro-steps li { margin: 6px 0; }
+
+/* Resaltar SOLO el texto del enlace final */
+.subtitle .intro-link {
+  margin-top: 6px;
+  font-weight: 600;
+}
+.subtitle .intro-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 800;          /* destaca el enlace */
+}
+.subtitle .intro-link a:hover {
+  text-decoration: underline;
+}
+
+/* Resaltado de toda la línea de registro */
+.subtitle .highlight-row {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.10);     /* dorado sutil semi-transparente */
+  border: 1px solid rgba(246, 178, 62, 0.35);
+  box-shadow: 0 4px 16px rgba(246, 178, 62, 0.12);
+}
+
+/* Enlace dentro del resaltado: aún más visible */
+.subtitle .highlight-row a {
+  color: var(--gold);
+  font-weight: 900;
+  text-decoration: none;
+}
+.subtitle .highlight-row a:hover { text-decoration: underline; }
+
+
+
+/* Texto de toda la línea (excepto el enlace) */
+.subtitle .highlight-row {
+  color: var(--text);     /* blanco del tema */
+  font-weight: 600;       /* un poco más grueso (semi-bold) */
+}
+
+/* El enlace conserva su color dorado y énfasis */
+.subtitle .highlight-row a {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+/* Asegura que padding/border cuenten dentro del ancho */
+*, *::before, *::after { box-sizing: border-box; }
