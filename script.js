@@ -77,8 +77,35 @@ function attachCalc(){
   });
 }
 
+// --- AUTO-LIMPIEZA DE CAMPOS CON "0" ---
+function attachAutoClear(){
+  const fields = [els.balance, els.riesgo, els.sl];
+
+  fields.forEach((f) => {
+    if (!f) return;
+
+    // Al enfocar: si vale "0" (o "0.00"), limpiar y seleccionar
+    f.addEventListener('focus', () => {
+      if (f.value === '0' || f.value === '0.00') f.value = '';
+      // Selecciona el contenido si hubiera algo
+      setTimeout(() => { try { f.select(); } catch(_){} }, 0);
+    });
+
+    // Al salir: si quedó vacío, reponer "0"
+    f.addEventListener('blur', () => {
+      if (String(f.value).trim() === '') f.value = '0';
+    });
+  });
+}
+
+// --- INICIALIZACIÓN ---
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', attachCalc);
+  document.addEventListener('DOMContentLoaded', () => {
+    attachCalc();
+    attachAutoClear();
+  });
 } else {
   attachCalc();
+  attachAutoClear();
 }
+
